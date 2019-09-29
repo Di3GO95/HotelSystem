@@ -98,6 +98,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(234, 31);
             this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBox1
             // 
@@ -121,6 +122,8 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(86)))), ((int)(((byte)(42)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(11, 192);
@@ -139,8 +142,10 @@
             this.Controls.Add(this.groupBoxUserPass);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.pictureUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Iniciar Sesión";
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.panelLogin.ResumeLayout(false);
             this.groupBoxUserPass.ResumeLayout(false);
