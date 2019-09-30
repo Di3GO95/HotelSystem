@@ -27,11 +27,11 @@
             this.panelLogin = new System.Windows.Forms.Panel();
             this.labelLogin = new System.Windows.Forms.Label();
             this.groupBoxUserPass = new System.Windows.Forms.GroupBox();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.labelUsername = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.panelLogin.SuspendLayout();
             this.groupBoxUserPass.SuspendLayout();
@@ -69,16 +69,31 @@
             // 
             // groupBoxUserPass
             // 
-            this.groupBoxUserPass.Controls.Add(this.button1);
+            this.groupBoxUserPass.Controls.Add(this.buttonLogin);
             this.groupBoxUserPass.Controls.Add(this.labelPassword);
             this.groupBoxUserPass.Controls.Add(this.textBoxPassword);
-            this.groupBoxUserPass.Controls.Add(this.textBox1);
+            this.groupBoxUserPass.Controls.Add(this.textBoxUsername);
             this.groupBoxUserPass.Controls.Add(this.labelUsername);
             this.groupBoxUserPass.Location = new System.Drawing.Point(12, 313);
             this.groupBoxUserPass.Name = "groupBoxUserPass";
             this.groupBoxUserPass.Size = new System.Drawing.Size(474, 301);
             this.groupBoxUserPass.TabIndex = 2;
             this.groupBoxUserPass.TabStop = false;
+            // 
+            // buttonLogin
+            // 
+            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(86)))), ((int)(((byte)(42)))));
+            this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.ForeColor = System.Drawing.Color.White;
+            this.buttonLogin.Location = new System.Drawing.Point(11, 192);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(434, 78);
+            this.buttonLogin.TabIndex = 4;
+            this.buttonLogin.Text = "Iniciar Sesion";
+            this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // labelPassword
             // 
@@ -100,13 +115,13 @@
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // textBoxUsername
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(212, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 31);
-            this.textBox1.TabIndex = 1;
+            this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsername.Location = new System.Drawing.Point(212, 54);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(233, 31);
+            this.textBoxUsername.TabIndex = 1;
             // 
             // labelUsername
             // 
@@ -119,20 +134,6 @@
             this.labelUsername.TabIndex = 0;
             this.labelUsername.Text = "Nombre de usuario:";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(86)))), ((int)(((byte)(42)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(11, 192);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(434, 78);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Iniciar Sesion";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +144,7 @@
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.pictureUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
@@ -161,9 +163,9 @@
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.GroupBox groupBoxUserPass;
         private System.Windows.Forms.Label labelUsername;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonLogin;
     }
 }
