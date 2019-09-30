@@ -65,9 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Databases\DAOException.cs" />
+    <Compile Include="Databases\DAOFactory.cs" />
     <Compile Include="Databases\DatabaseStatus.cs" />
-    <Compile Include="Databases\MySQL.cs" />
+    <Compile Include="Databases\DatabaseTypes.cs" />
+    <Compile Include="Databases\IUserDAO.cs" />
+    <Compile Include="Databases\MySQL\MySQLUserDAO.cs" />
     <Compile Include="Controllers\Controller.cs" />
+    <Compile Include="Databases\MySQL\MySQLDAOFactory.cs" />
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
