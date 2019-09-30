@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 namespace HotelSystem.Controllers {
     class Controller {
         private static Controller onlyInstance;
-        private readonly MySQL connection;
 
         private Controller() {
-            connection = new MySQL();
+            DAOFactory.SetDAOFactory(DatabaseTypes.MySQL);
         }
 
         public static Controller GetOnlyInstance() {
@@ -21,7 +20,8 @@ namespace HotelSystem.Controllers {
         }
 
         public bool Login(string username, string password) {
-            return connection.Login(username, password);
+            IUserDAO uDAO = DAOFactory.GetOnlyInstance().GetUserDAO();
+            return uDAO.Login(username, password);
         }
     }
 }
