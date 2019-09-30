@@ -65,7 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Connect.cs" />
+    <Compile Include="Databases\DatabaseStatus.cs" />
+    <Compile Include="Databases\MySQL.cs" />
+    <Compile Include="Controllers\Controller.cs" />
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
