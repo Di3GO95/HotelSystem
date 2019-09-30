@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelSystem.Databases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,10 @@ using System.Threading.Tasks;
 namespace HotelSystem.Controllers {
     class Controller {
         private static Controller onlyInstance;
+        private readonly MySQL connection;
 
         private Controller() {
-
+            connection = new MySQL();
         }
 
         public static Controller GetOnlyInstance() {
@@ -19,8 +21,6 @@ namespace HotelSystem.Controllers {
         }
 
         public bool Login(string username, string password) {
-            Connect connection = new Connect();
-
             return connection.Login(username, password);
         }
     }
