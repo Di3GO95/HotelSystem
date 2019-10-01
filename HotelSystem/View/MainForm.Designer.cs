@@ -24,41 +24,44 @@
         /// </summary>
         private void InitializeComponent() {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.gestionarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionarHabitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRoomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageReservationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionarClientesToolStripMenuItem,
-            this.gestionarHabitacionesToolStripMenuItem,
-            this.gestionarReservasToolStripMenuItem});
+            this.manageClientsToolStripMenuItem,
+            this.manageRoomsToolStripMenuItem,
+            this.manageReservationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1020, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // gestionarClientesToolStripMenuItem
+            // manageClientsToolStripMenuItem
             // 
-            this.gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
-            this.gestionarClientesToolStripMenuItem.Text = "Gestionar Clientes";
+            this.manageClientsToolStripMenuItem.Name = "manageClientsToolStripMenuItem";
+            this.manageClientsToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.manageClientsToolStripMenuItem.Text = "Gestionar Clientes";
+            this.manageClientsToolStripMenuItem.Click += new System.EventHandler(this.ManageClientsToolStripMenuItem_Click);
             // 
-            // gestionarReservasToolStripMenuItem
+            // manageRoomsToolStripMenuItem
             // 
-            this.gestionarReservasToolStripMenuItem.Name = "gestionarReservasToolStripMenuItem";
-            this.gestionarReservasToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
-            this.gestionarReservasToolStripMenuItem.Text = "Gestionar Reservas";
+            this.manageRoomsToolStripMenuItem.Name = "manageRoomsToolStripMenuItem";
+            this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(141, 20);
+            this.manageRoomsToolStripMenuItem.Text = "Gestionar Habitaciones";
+            this.manageRoomsToolStripMenuItem.Click += new System.EventHandler(this.ManageRoomsToolStripMenuItem_Click);
             // 
-            // gestionarHabitacionesToolStripMenuItem
+            // manageReservationsToolStripMenuItem
             // 
-            this.gestionarHabitacionesToolStripMenuItem.Name = "gestionarHabitacionesToolStripMenuItem";
-            this.gestionarHabitacionesToolStripMenuItem.Size = new System.Drawing.Size(141, 20);
-            this.gestionarHabitacionesToolStripMenuItem.Text = "Gestionar Habitaciones";
+            this.manageReservationsToolStripMenuItem.Name = "manageReservationsToolStripMenuItem";
+            this.manageReservationsToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
+            this.manageReservationsToolStripMenuItem.Text = "Gestionar Reservas";
+            this.manageReservationsToolStripMenuItem.Click += new System.EventHandler(this.ManageReservationsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -82,8 +85,8 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem gestionarClientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionarReservasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionarHabitacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageClientsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageReservationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageRoomsToolStripMenuItem;
     }
 }

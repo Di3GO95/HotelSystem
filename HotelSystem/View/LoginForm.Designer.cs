@@ -148,6 +148,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.panelLogin.ResumeLayout(false);
             this.groupBoxUserPass.ResumeLayout(false);

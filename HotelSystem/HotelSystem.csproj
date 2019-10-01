@@ -87,6 +87,24 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ManageClientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManageClientsForm.Designer.cs">
+      <DependentUpon>ManageClientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManageReservationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManageReservationsForm.Designer.cs">
+      <DependentUpon>ManageReservationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManageRoomsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManageRoomsForm.Designer.cs">
+      <DependentUpon>ManageRoomsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
