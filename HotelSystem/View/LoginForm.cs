@@ -1,4 +1,5 @@
 ﻿using HotelSystem.Controllers;
+using HotelSystem.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,9 +32,13 @@ namespace HotelSystem {
                 bool login = Controller.GetOnlyInstance().Login(user, password);
 
                 if (login) {
-                    MessageBox.Show("Correcto");
+                    this.Hide();
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+
                 } else {
                     MessageBox.Show(msgWrongData, msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxPassword.Text = "";
                 }
             }
         }
