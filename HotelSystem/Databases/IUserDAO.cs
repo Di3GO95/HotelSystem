@@ -7,5 +7,7 @@ using System.Threading.Tasks;
 namespace HotelSystem.Databases {
     internal interface IUserDAO {
         bool Login(string username, string password);
+
+        bool CreateClient(string firstName, string lastName, string phone, string country);
     }
 }

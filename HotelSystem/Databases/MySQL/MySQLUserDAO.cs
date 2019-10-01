@@ -15,12 +15,13 @@ namespace HotelSystem.Databases {
             if (OpenConnection() == DatabaseStatus.Connected) {
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                MySqlCommand command = new MySqlCommand();
 
                 String query = "SELECT * FROM `users` WHERE `username`=@user AND `password`=@pass";
 
-                command.Connection = this.connection;
-                command.CommandText = query;
+                MySqlCommand command = new MySqlCommand{
+                    Connection = this.connection,
+                    CommandText = query
+                };
                 command.Parameters.Add("@user", MySqlDbType.VarChar).Value = username;
                 command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
 
@@ -36,5 +37,28 @@ namespace HotelSystem.Databases {
 
             return false;
         }
+        public bool CreateClient(string firstName, string lastName, string phone, string country) {
+            if (OpenConnection() == DatabaseStatus.Connected) {
+                String query = "INSERT INTO `clients`(`first_name`, `last_name`, `phone`, `country`) VALUES (@firstName,@lastName,@phone,@country)";
+
+                MySqlCommand command = new MySqlCommand{
+                    Connection = this.connection,
+                    CommandText = query
+                };
+                command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName;
+                command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = lastName;
+                command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
+                command.Parameters.Add("@country", MySqlDbType.VarChar).Value = country;
+
+                int nRows = command.ExecuteNonQuery();
+                CloseConnection();
+                command.Dispose();
+
+                if (nRows == 1)
+                    return true;
+            }
+            return false;
+        }
+
     }
 }

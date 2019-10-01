@@ -73,6 +73,7 @@
     <Compile Include="Databases\MySQL\MySQLUserDAO.cs" />
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Databases\MySQL\MySQLDAOFactory.cs" />
+    <Compile Include="View\AuxMessages.cs" />
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +121,15 @@
     </Compile>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManageClientsForm.resx">
+      <DependentUpon>ManageClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManageReservationsForm.resx">
+      <DependentUpon>ManageReservationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManageRoomsForm.resx">
+      <DependentUpon>ManageRoomsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

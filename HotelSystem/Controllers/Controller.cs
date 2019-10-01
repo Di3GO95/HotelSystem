@@ -20,8 +20,13 @@ namespace HotelSystem.Controllers {
         }
 
         public bool Login(string username, string password) {
-            IUserDAO uDAO = DAOFactory.GetOnlyInstance().GetUserDAO();
+            IUserDAO uDAO = DAOFactory.OnlyInstance.GetUserDAO();
             return uDAO.Login(username, password);
+        }
+
+        public bool CreateClient(string name, string lastName, string phone, string country) {
+            IUserDAO uDAO = DAOFactory.OnlyInstance.GetUserDAO();
+            return uDAO.CreateClient(name, lastName, phone, country);
         }
     }
 }
