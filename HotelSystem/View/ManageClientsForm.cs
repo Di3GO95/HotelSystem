@@ -1,4 +1,5 @@
 ﻿using HotelSystem.Controllers;
+using HotelSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,12 @@ namespace HotelSystem.View {
                 }
             }
             ButtonClearFields_Click(sender, e);
+        }
+
+        private void ManageClientsForm_Load(object sender, EventArgs e) {
+            List<Client> clients = Controller.GetOnlyInstance().GetClients();
+
+            dataGridViewClients.DataSource = clients;
         }
     }
 }

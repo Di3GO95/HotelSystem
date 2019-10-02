@@ -73,6 +73,7 @@
     <Compile Include="Databases\MySQL\MySQLUserDAO.cs" />
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Databases\MySQL\MySQLDAOFactory.cs" />
+    <Compile Include="Model\Client.cs" />
     <Compile Include="View\AuxMessages.cs" />
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -148,8 +149,6 @@
   <ItemGroup>
     <Content Include="resources\images\user.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

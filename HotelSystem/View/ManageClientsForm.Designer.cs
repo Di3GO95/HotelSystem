@@ -28,7 +28,7 @@
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonNewClient = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewClients = new System.Windows.Forms.DataGridView();
             this.textBoxCountry = new System.Windows.Forms.TextBox();
             this.labelCountry = new System.Windows.Forms.Label();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
             this.panelTitle = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelBackground.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             this.panelBackground.Controls.Add(this.buttonRemove);
             this.panelBackground.Controls.Add(this.buttonEdit);
             this.panelBackground.Controls.Add(this.buttonNewClient);
-            this.panelBackground.Controls.Add(this.dataGridView1);
+            this.panelBackground.Controls.Add(this.dataGridViewClients);
             this.panelBackground.Controls.Add(this.textBoxCountry);
             this.panelBackground.Controls.Add(this.labelCountry);
             this.panelBackground.Controls.Add(this.textBoxPhone);
@@ -113,13 +113,16 @@
             this.buttonNewClient.UseVisualStyleBackColor = true;
             this.buttonNewClient.Click += new System.EventHandler(this.ButtonNewClient_Click);
             // 
-            // dataGridView1
+            // dataGridViewClients
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(430, 123);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(659, 431);
-            this.dataGridView1.TabIndex = 11;
+            this.dataGridViewClients.AllowUserToAddRows = false;
+            this.dataGridViewClients.AllowUserToDeleteRows = false;
+            this.dataGridViewClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClients.Location = new System.Drawing.Point(430, 123);
+            this.dataGridViewClients.Name = "dataGridViewClients";
+            this.dataGridViewClients.ReadOnly = true;
+            this.dataGridViewClients.Size = new System.Drawing.Size(659, 431);
+            this.dataGridViewClients.TabIndex = 11;
             // 
             // textBoxCountry
             // 
@@ -195,9 +198,11 @@
             // 
             // textBoxID
             // 
+            this.textBoxID.Enabled = false;
             this.textBoxID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxID.Location = new System.Drawing.Point(137, 139);
             this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(152, 31);
             this.textBoxID.TabIndex = 2;
             // 
@@ -241,9 +246,10 @@
             this.Name = "ManageClientsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageClientsForm";
+            this.Load += new System.EventHandler(this.ManageClientsForm_Load);
             this.panelBackground.ResumeLayout(false);
             this.panelBackground.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).EndInit();
             this.panelTitle.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -264,7 +270,7 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBoxCountry;
         private System.Windows.Forms.Label labelCountry;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewClients;
         private System.Windows.Forms.Button buttonNewClient;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonRemove;

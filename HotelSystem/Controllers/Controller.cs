@@ -1,4 +1,5 @@
 ﻿using HotelSystem.Databases;
+using HotelSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,11 @@ namespace HotelSystem.Controllers {
         public bool CreateClient(string name, string lastName, string phone, string country) {
             IUserDAO uDAO = DAOFactory.OnlyInstance.GetUserDAO();
             return uDAO.CreateClient(name, lastName, phone, country);
+        }
+
+        public List<Client> GetClients() {
+            IUserDAO uDAO = DAOFactory.OnlyInstance.GetUserDAO();
+            return uDAO.GetClients();
         }
     }
 }

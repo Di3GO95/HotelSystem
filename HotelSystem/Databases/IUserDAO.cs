@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,7 @@ namespace HotelSystem.Databases {
         bool Login(string username, string password);
 
         bool CreateClient(string firstName, string lastName, string phone, string country);
+
+        List<Client> GetClients();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HotelSystem.Databases.MySQL;
+using HotelSystem.Model;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HotelSystem.Databases {
     internal class MySQLUserDAO : MySQLDAOFactory, IUserDAO {
@@ -58,6 +60,39 @@ namespace HotelSystem.Databases {
                     return true;
             }
             return false;
+        }
+
+        public List<Client> GetClients() {
+            List<Client> clients = null;
+            if (OpenConnection() == DatabaseStatus.Connected) {
+                String query = "SELECT * FROM `clients`";
+
+                MySqlCommand command = new MySqlCommand{
+                    Connection = this.connection,
+                    CommandText = query
+                };
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                DataTable table = new DataTable();
+
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+
+                adapter.Dispose();
+
+                clients = new List<Client>();
+                foreach (DataRow row in table.Rows) {
+                    int id = Int32.Parse(row["id"].ToString());
+                    string firstName = row["first_name"].ToString();
+                    string lastName = row["last_name"].ToString();
+                    string phone = row["phone"].ToString();
+                    string country = row["country"].ToString();
+
+                    Client client = new Client(id, firstName, lastName, phone, country);
+                    clients.Add(client);
+                }
+            }
+            return clients;
         }
 
     }
