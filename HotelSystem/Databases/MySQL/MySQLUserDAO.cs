@@ -39,7 +39,8 @@ namespace HotelSystem.Databases {
 
             return false;
         }
-        public bool CreateClient(string firstName, string lastName, string phone, string country) {
+        public Client CreateClient(string firstName, string lastName, string phone, string country) {
+            Client client = null;
             if (OpenConnection() == DatabaseStatus.Connected) {
                 String query = "INSERT INTO `clients`(`first_name`, `last_name`, `phone`, `country`) VALUES (@firstName,@lastName,@phone,@country)";
 
@@ -47,6 +48,33 @@ namespace HotelSystem.Databases {
                     Connection = this.connection,
                     CommandText = query
                 };
+                command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName;
+                command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = lastName;
+                command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
+                command.Parameters.Add("@country", MySqlDbType.VarChar).Value = country;
+
+                int nRows = command.ExecuteNonQuery();
+
+                if (nRows == 1) {
+                    int id = (int)command.LastInsertedId;
+                    client = new Client(id, firstName, lastName, phone, country);
+                }
+
+                CloseConnection();
+                command.Dispose();
+            }
+            return client;
+        }
+
+        public bool UpdateClient(int id, string firstName, string lastName, string phone, string country) {
+            if (OpenConnection() == DatabaseStatus.Connected) {
+                String query = "UPDATE `clients` SET `first_name`=@firstName,`last_name`=@lastName,`phone`=@phone,`country`=@country WHERE `id`=@id";
+
+                MySqlCommand command = new MySqlCommand{
+                    Connection = this.connection,
+                    CommandText = query
+                };
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
                 command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName;
                 command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = lastName;
                 command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
@@ -62,8 +90,28 @@ namespace HotelSystem.Databases {
             return false;
         }
 
+        public bool RemoveClient(int id) {
+            if (OpenConnection() == DatabaseStatus.Connected) {
+                String query = "DELETE FROM `clients` WHERE `id`=@id";
+
+                MySqlCommand command = new MySqlCommand{
+                    Connection = this.connection,
+                    CommandText = query
+                };
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+
+                int nRows = command.ExecuteNonQuery();
+                CloseConnection();
+                command.Dispose();
+
+                if (nRows == 1)
+                    return true;
+            }
+            return false;
+        }
+
         public List<Client> GetClients() {
-            List<Client> clients = null;
+            List<Client> clients = new List<Client>();
             if (OpenConnection() == DatabaseStatus.Connected) {
                 String query = "SELECT * FROM `clients`";
 
@@ -80,7 +128,6 @@ namespace HotelSystem.Databases {
 
                 adapter.Dispose();
 
-                clients = new List<Client>();
                 foreach (DataRow row in table.Rows) {
                     int id = Int32.Parse(row["id"].ToString());
                     string firstName = row["first_name"].ToString();

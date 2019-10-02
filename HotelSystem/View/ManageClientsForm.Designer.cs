@@ -29,7 +29,6 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonNewClient = new System.Windows.Forms.Button();
             this.dataGridViewClients = new System.Windows.Forms.DataGridView();
-            this.textBoxCountry = new System.Windows.Forms.TextBox();
             this.labelCountry = new System.Windows.Forms.Label();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.labelPhone = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.labelID = new System.Windows.Forms.Label();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.comboBoxCountries = new System.Windows.Forms.ComboBox();
             this.panelBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             this.panelTitle.SuspendLayout();
@@ -49,12 +49,12 @@
             // panelBackground
             // 
             this.panelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
+            this.panelBackground.Controls.Add(this.comboBoxCountries);
             this.panelBackground.Controls.Add(this.buttonClearFields);
             this.panelBackground.Controls.Add(this.buttonRemove);
             this.panelBackground.Controls.Add(this.buttonEdit);
             this.panelBackground.Controls.Add(this.buttonNewClient);
             this.panelBackground.Controls.Add(this.dataGridViewClients);
-            this.panelBackground.Controls.Add(this.textBoxCountry);
             this.panelBackground.Controls.Add(this.labelCountry);
             this.panelBackground.Controls.Add(this.textBoxPhone);
             this.panelBackground.Controls.Add(this.labelPhone);
@@ -84,6 +84,7 @@
             // 
             // buttonRemove
             // 
+            this.buttonRemove.Enabled = false;
             this.buttonRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRemove.Location = new System.Drawing.Point(301, 415);
             this.buttonRemove.Name = "buttonRemove";
@@ -91,9 +92,11 @@
             this.buttonRemove.TabIndex = 14;
             this.buttonRemove.Text = "Eliminar";
             this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.ButtonRemove_Click);
             // 
             // buttonEdit
             // 
+            this.buttonEdit.Enabled = false;
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEdit.Location = new System.Drawing.Point(211, 415);
             this.buttonEdit.Name = "buttonEdit";
@@ -101,6 +104,7 @@
             this.buttonEdit.TabIndex = 13;
             this.buttonEdit.Text = "Editar";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // buttonNewClient
             // 
@@ -123,14 +127,7 @@
             this.dataGridViewClients.ReadOnly = true;
             this.dataGridViewClients.Size = new System.Drawing.Size(659, 431);
             this.dataGridViewClients.TabIndex = 11;
-            // 
-            // textBoxCountry
-            // 
-            this.textBoxCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCountry.Location = new System.Drawing.Point(137, 325);
-            this.textBoxCountry.Name = "textBoxCountry";
-            this.textBoxCountry.Size = new System.Drawing.Size(152, 31);
-            this.textBoxCountry.TabIndex = 10;
+            this.dataGridViewClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewClients_CellClick);
             // 
             // labelCountry
             // 
@@ -147,7 +144,7 @@
             this.textBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPhone.Location = new System.Drawing.Point(137, 277);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(152, 31);
+            this.textBoxPhone.Size = new System.Drawing.Size(215, 31);
             this.textBoxPhone.TabIndex = 8;
             // 
             // labelPhone
@@ -165,7 +162,7 @@
             this.textBoxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLastName.Location = new System.Drawing.Point(137, 230);
             this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(152, 31);
+            this.textBoxLastName.Size = new System.Drawing.Size(215, 31);
             this.textBoxLastName.TabIndex = 6;
             // 
             // labelLastName
@@ -183,7 +180,7 @@
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(137, 185);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(152, 31);
+            this.textBoxName.Size = new System.Drawing.Size(215, 31);
             this.textBoxName.TabIndex = 4;
             // 
             // labelName
@@ -203,7 +200,7 @@
             this.textBoxID.Location = new System.Drawing.Point(137, 139);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.ReadOnly = true;
-            this.textBoxID.Size = new System.Drawing.Size(152, 31);
+            this.textBoxID.Size = new System.Drawing.Size(215, 31);
             this.textBoxID.TabIndex = 2;
             // 
             // labelID
@@ -237,6 +234,16 @@
             this.labelTitle.Text = "Gestionar Clientes";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // comboBoxCountries
+            // 
+            this.comboBoxCountries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCountries.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCountries.FormattingEnabled = true;
+            this.comboBoxCountries.Location = new System.Drawing.Point(137, 325);
+            this.comboBoxCountries.Name = "comboBoxCountries";
+            this.comboBoxCountries.Size = new System.Drawing.Size(215, 33);
+            this.comboBoxCountries.TabIndex = 16;
+            // 
             // ManageClientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,12 +275,12 @@
         private System.Windows.Forms.Label labelLastName;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox textBoxCountry;
         private System.Windows.Forms.Label labelCountry;
         private System.Windows.Forms.DataGridView dataGridViewClients;
         private System.Windows.Forms.Button buttonNewClient;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonClearFields;
+        private System.Windows.Forms.ComboBox comboBoxCountries;
     }
 }

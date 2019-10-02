@@ -74,6 +74,7 @@
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Databases\MySQL\MySQLDAOFactory.cs" />
     <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\Countries.cs" />
     <Compile Include="View\AuxMessages.cs" />
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>

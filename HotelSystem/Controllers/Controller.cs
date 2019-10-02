@@ -25,9 +25,19 @@ namespace HotelSystem.Controllers {
             return uDAO.Login(username, password);
         }
 
-        public bool CreateClient(string name, string lastName, string phone, string country) {
+        public Client CreateClient(string name, string lastName, string phone, string country) {
             IUserDAO uDAO = DAOFactory.OnlyInstance.GetUserDAO();
             return uDAO.CreateClient(name, lastName, phone, country);
+        }
+
+        public bool UpdateClient(int id, string name, string lastName, string phone, string country) {
+            IUserDAO uDAO = DAOFactory.OnlyInstance.GetUserDAO();
+            return uDAO.UpdateClient(id, name, lastName, phone, country);
+        }
+
+        public bool RemoveClient(int id) {
+            IUserDAO uDAO = DAOFactory.OnlyInstance.GetUserDAO();
+            return uDAO.RemoveClient(id);
         }
 
         public List<Client> GetClients() {

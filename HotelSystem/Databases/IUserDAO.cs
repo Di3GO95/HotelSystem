@@ -9,7 +9,11 @@ namespace HotelSystem.Databases {
     internal interface IUserDAO {
         bool Login(string username, string password);
 
-        bool CreateClient(string firstName, string lastName, string phone, string country);
+        Client CreateClient(string firstName, string lastName, string phone, string country);
+
+        bool UpdateClient(int id, string firstName, string lastName, string phone, string country);
+
+        bool RemoveClient(int id);
 
         List<Client> GetClients();
     }
