@@ -1,4 +1,5 @@
 ﻿using HotelSystem.Controllers;
+using HotelSystem.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,18 +25,25 @@ namespace HotelSystem {
 
         private void ButtonLogin_Click(object sender, EventArgs e) {
             if (textBoxUsername.TextLength == 0 || textBoxPassword.TextLength == 0) {
-                MessageBox.Show(msgNoData, msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AuxMessages.ShowError(msgNoData, msgTitle);
             } else {
                 string user = textBoxUsername.Text;
                 string password = textBoxPassword.Text;
                 bool login = Controller.GetOnlyInstance().Login(user, password);
 
                 if (login) {
-                    MessageBox.Show("Correcto");
+                    this.Hide();
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
                 } else {
-                    MessageBox.Show(msgWrongData, msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    AuxMessages.ShowError(msgWrongData, msgTitle);
+                    textBoxPassword.Text = "";
                 }
             }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e) {
+            Application.Exit();
         }
     }
 }
