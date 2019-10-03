@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 namespace HotelSystem.Model {
     internal class Client {
         public int Id { get; private set; }
+        [System.ComponentModel.DisplayName("First Name")]
         public string FirstName { get; set; }
+        [System.ComponentModel.DisplayName("Last Name")]
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string Country { get; set; }

@@ -12,7 +12,6 @@ using System.Windows.Forms;
 
 namespace HotelSystem.Databases {
     internal class MySQLUserDAO : MySQLDAOFactory, IUserDAO {
-
         public bool Login(string username, string password) {
             if (OpenConnection() == DatabaseStatus.Connected) {
                 DataTable table = new DataTable();
@@ -126,6 +125,7 @@ namespace HotelSystem.Databases {
                 adapter.SelectCommand = command;
                 adapter.Fill(table);
 
+                CloseConnection();
                 adapter.Dispose();
 
                 foreach (DataRow row in table.Rows) {

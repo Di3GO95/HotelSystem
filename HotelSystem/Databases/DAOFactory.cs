@@ -14,6 +14,8 @@ namespace HotelSystem.Databases {
 
         public abstract IUserDAO GetUserDAO();
 
+        public abstract IRoomDAO GetRoomDAO();
+
         public static void SetDAOFactory(DatabaseTypes type) {
             switch (type) {
                 case DatabaseTypes.MySQL: {
