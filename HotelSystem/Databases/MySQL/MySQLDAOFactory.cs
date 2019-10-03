@@ -39,5 +39,9 @@ namespace HotelSystem.Databases.MySQL {
         public override IUserDAO GetUserDAO() {
             return new MySQLUserDAO();
         }
+
+        public override IRoomDAO GetRoomDAO() {
+            return new MySQLRoomDAO();
+        }
     }
 }
